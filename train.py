@@ -8,14 +8,14 @@ import numpy as np
 from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import LSTM, Dense
 from tensorflow.keras.callbacks import TensorBoard
-
+log_dir = os.path.join('Logs')
 if os.path.exists("demofile.txt"):
   os.remove("action.h5")
 try:
     shutil.rmtree(log_dir)
 except OSError as e:
     print("Error: %s - %s." % (e.filename, e.strerror))
-log_dir = os.path.join('Logs')
+
 tb_callback = TensorBoard(log_dir=log_dir)
 actions = np.array(['head', 'Movement'])
 model = Sequential()
