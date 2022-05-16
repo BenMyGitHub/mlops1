@@ -35,7 +35,7 @@ y_train = pd.read_csv(ytrain_data_path, sep=",")
 
 # Model 
 model.compile(optimizer='Adam', loss='categorical_crossentropy', metrics=['categorical_accuracy'])
-model.fit(X_train, y_train, epochs=2000, callbacks=[tb_callback])
+model.fit(X_train, y_train, epochs=170, callbacks=[tb_callback])
 
 
 # Set path to output (model)
