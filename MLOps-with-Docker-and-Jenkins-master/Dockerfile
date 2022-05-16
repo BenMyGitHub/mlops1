@@ -1,7 +1,7 @@
 FROM jupyter/scipy-notebook
 
-RUN pip install tensorflow==2.4.1 sklearn
-
+RUN pip install tensorflow==2.5.0 sklearn
+RUN pip install numpy
 
 USER root
 RUN apt-get update && apt-get install -y jq
@@ -19,4 +19,4 @@ ENV RESULTS_DIR=/home/jovyan/results
 COPY MP_Data ./MP_Data
 COPY preprocessing.py ./preprocessing.py
 COPY train.py ./train.py
-COPY test.py ./test.py
+

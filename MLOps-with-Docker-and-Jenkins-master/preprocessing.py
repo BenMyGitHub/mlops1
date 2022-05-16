@@ -1,5 +1,6 @@
 import os
 import pandas as pd
+import numpy as np
 from sklearn.model_selection import train_test_split
 from tensorflow.keras.utils import to_categorical
 
@@ -34,11 +35,11 @@ y = to_categorical(labels).astype(int)
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.05)
 # Set path to the outputs
 PROCESSED_DATA_DIR = os.environ["PROCESSED_DATA_DIR"]
-Xtrain_path = os.path.join(PROCESSED_DATA_DIR, 'Xtrain.csv')
-ytrain_path = os.path.join(PROCESSED_DATA_DIR, 'ytrain.csv')
-Xtest_path = os.path.join(PROCESSED_DATA_DIR, 'Xtest.csv')
-ytest_path = os.path.join(PROCESSED_DATA_DIR, 'ytest.csv')
-X_train.to_csv(Xtrain_path, index=False)
-y_train.to_csv(ytrain_path, index=False)
-X_test.to_csv(Xtest_path,  index=False)
-y_test.to_csv(ytest_path,  index=False)
+Xtrain_path = os.path.join(PROCESSED_DATA_DIR, 'Xtrain.npy')
+ytrain_path = os.path.join(PROCESSED_DATA_DIR, 'ytrain.npy')
+Xtest_path = os.path.join(PROCESSED_DATA_DIR, 'Xtest.npy')
+ytest_path = os.path.join(PROCESSED_DATA_DIR, 'ytest.npy')
+np.save('./processed_data/Xtrain.npy',X_train)
+np.save('./processed_data/ytrain.npy', y_train)
+np.save('./processed_data/Xtest.npy',  X_test)
+np.save('./processed_data/ytest.npy',  y_test)

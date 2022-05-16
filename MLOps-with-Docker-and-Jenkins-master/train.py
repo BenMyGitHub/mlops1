@@ -2,7 +2,7 @@ import pandas as pd
 
 
 import os
-
+import numpy as np
 
 from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import LSTM, Dense
@@ -10,7 +10,7 @@ from tensorflow.keras.callbacks import TensorBoard
 
 log_dir = os.path.join('Logs')
 tb_callback = TensorBoard(log_dir=log_dir)
-
+actions = np.array(['head', 'Movement'])
 model = Sequential()
 model.add(LSTM(64, return_sequences=True, activation='relu', input_shape=(30,1662)))
 model.add(LSTM(128, return_sequences=True, activation='relu'))
@@ -21,16 +21,16 @@ model.add(Dense(actions.shape[0], activation='softmax'))
 
 # Set path to inputs
 PROCESSED_DATA_DIR = os.environ["PROCESSED_DATA_DIR"]
-Xtrain_data_file = 'Xtrain.csv'
-ytrain_data_file = 'ytrain.csv'
+Xtrain_data_file = 'Xtrain.npy'
+ytrain_data_file = 'ytrain.npy'
 Xtrain_data_path = os.path.join(PROCESSED_DATA_DIR, Xtrain_data_file)
 ytrain_data_path = os.path.join(PROCESSED_DATA_DIR, ytrain_data_file)
 # Read data
 
 
 # Split data into dependent and independent variables
-X_train = pd.read_csv(Xtrain_data_path, sep=",")
-y_train = pd.read_csv(ytrain_data_path, sep=",")
+X_train = np.load(Xtrain_data_path)
+y_train = np.load(ytrain_data_path)
 
 
 # Model 
