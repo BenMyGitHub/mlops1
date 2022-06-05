@@ -3,7 +3,20 @@ import pandas as pd
 import numpy as np
 from sklearn.model_selection import train_test_split
 from tensorflow.keras.utils import to_categorical
+# Path for exported data, numpy arrays
+DATA_PATH = os.path.join('MP_Data') 
 
+# Actions that we try to detect
+actions = np.array(['head', 'Movement'])
+
+# Thirty videos worth of data
+no_sequences = 30
+
+# Videos are going to be 30 frames in length
+sequence_length = 30
+
+# Folder start
+start_folder = 30
 import cv2
 import mediapipe as mp
 mp_holistic = mp.solutions.holistic # Holistic model
@@ -56,20 +69,7 @@ with mp_holistic.Holistic(min_detection_confidence=0.5, min_tracking_confidence=
     cap.release()
     cv2.destroyAllWindows()
 
-# Path for exported data, numpy arrays
-DATA_PATH = os.path.join('MP_Data') 
 
-# Actions that we try to detect
-actions = np.array(['head', 'Movement'])
-
-# Thirty videos worth of data
-no_sequences = 30
-
-# Videos are going to be 30 frames in length
-sequence_length = 30
-
-# Folder start
-start_folder = 30
 
 label_map = {label:num for num, label in enumerate(actions)}
 
