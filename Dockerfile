@@ -1,5 +1,5 @@
 FROM jupyter/scipy-notebook
-
+FROM ubuntu:14.04
 RUN pip install tensorflow sklearn
 RUN pip install numpy
  
