@@ -1,6 +1,6 @@
 FROM jupyter/scipy-notebook
 
-RUN pip install tensorflow==2.5.0 sklearn
+RUN pip install tensorflow sklearn
 RUN pip install numpy
  
 USER root
