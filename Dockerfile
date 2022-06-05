@@ -1,4 +1,4 @@
-FROM jupyter/scipy-notebook
+FROM jupyter/scipy-notebook:8ee3ea7a590a
 RUN pip install tensorflow sklearn
 RUN pip install numpy
  
