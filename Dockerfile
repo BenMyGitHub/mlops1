@@ -8,7 +8,7 @@ RUN apt-get update && apt-get install -y jq
 # Install packages required for compiling opencv
 RUN apt-get -y install build-essential cmake pkg-config wget
 # Install packages providing support for several image formats
-RUN apt-get -y install libjpeg8-dev libtiff5-dev libjasper-dev libpng12-dev
+RUN apt-get -y install libjpeg8-dev libtiff5-dev
 # Install gtk (GUI components in opencv rely on gtk)
 RUN apt-get -y install libgtk-3-dev
 # Install additional packages optimizing opencv
