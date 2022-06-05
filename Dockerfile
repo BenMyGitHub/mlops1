@@ -32,7 +32,7 @@ RUN apt-get update && apt-get install -y \
     git \
     graphicsmagick \
     libgraphicsmagick1-dev \
-    libatlas-dev \
+    libatlas-base-dev \
     libavcodec-dev \
     libavformat-dev \
     libboost-all-dev \
