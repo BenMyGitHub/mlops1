@@ -24,6 +24,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
       wget \
       python3-tk && \
     rm -rf /var/lib/apt/lists/*
+RUN pip install opencv-python==4.0.0.21
 RUN mkdir model MP_Data processed_data results
 
 
