@@ -5,7 +5,7 @@ USER root
 RUN apt-get update && apt-get install -y jq
 ARG NUM_CORES=2
 RUN apt-get update
-RUN apt-get install gpg wget
+RUN apt-get install apt-transport-https wget
 RUN wget -O - https://apt.kitware.com/keys/kitware-archive-latest.asc 2>/dev/null | gpg --dearmor - | sudo tee /usr/share/keyrings/kitware-archive-keyring.gpg >/dev/null
 RUN echo 'deb [signed-by=/usr/share/keyrings/kitware-archive-keyring.gpg] https://apt.kitware.com/ubuntu/ bionic main' | sudo tee /etc/apt/sources.list.d/kitware.list >/dev/null
 RUN apt-get update
