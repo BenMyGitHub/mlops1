@@ -1,7 +1,8 @@
 FROM jupyter/scipy-notebook:8ee3ea7a590a
+RUN pip install pip --upgrade
 RUN pip install tensorflow sklearn
 RUN pip install numpy
-RUN pip install pip --upgrade
+
 USER root
 RUN apt-get update && apt-get install -y jq
 ARG NUM_CORES=2
