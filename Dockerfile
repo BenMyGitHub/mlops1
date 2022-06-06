@@ -4,10 +4,10 @@ FROM jupyter/scipy-notebook:8ee3ea7a590a
 USER root
 RUN apt-get update && apt-get install -y jq
 ARG NUM_CORES=2
-RUN apt-get update
-RUN apt-get -y --force-yes --fix-missing --no-install-recommends install apt-transport-https wget
+#RUN apt-get update
+#RUN apt-get -y --force-yes --fix-missing --no-install-recommends install apt-transport-https wget
 RUN wget -O - https://apt.kitware.com/keys/kitware-archive-latest.asc 2>/dev/null | gpg --dearmor - | sudo tee /usr/share/keyrings/kitware-archive-keyring.gpg >/dev/null
-RUN echo 'deb [signed-by=/usr/share/keyrings/kitware-archive-keyring.gpg] https://apt.kitware.com/ubuntu/ xenial main' | sudo tee /etc/apt/sources.list.d/kitware.list >/dev/null
+RUN echo 'deb [signed-by=/usr/share/keyrings/kitware-archive-keyring.gpg] https://apt.kitware.com/ubuntu/ focal main' | sudo tee /etc/apt/sources.list.d/kitware.list >/dev/null
 RUN apt-get update
 ## Install packages
 RUN apt-get update -qq && \
