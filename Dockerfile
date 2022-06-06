@@ -10,7 +10,8 @@ ARG NUM_CORES=2
 #RUN echo 'deb [signed-by=/usr/share/keyrings/kitware-archive-keyring.gpg] https://apt.kitware.com/ubuntu/ focal main' | sudo tee /etc/apt/sources.list.d/kitware.list >/dev/null
 #RUN apt-get update
 ## Install packages
-RUN pip install cmake==3.5.1
+RUN pip install pip --upgrade
+RUN pip install cmake
 RUN apt-get update -qq && \
     apt-get install -y --force-yes --fix-missing --no-install-recommends \
     # Basics
@@ -108,7 +109,7 @@ WORKDIR /home/jovyan/work
 ## Additional python modules
 #RUN /opt/conda/envs/python2/bin/pip install imutils minieigen
 #RUN /opt/conda/bin/pip install imutils minieigen
-RUN pip install pip --upgrade
+
 RUN pip install tensorflow tensorflow-gpu
 RUN pip install sklearn
 RUN pip install numpy
