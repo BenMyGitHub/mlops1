@@ -1,8 +1,5 @@
 FROM jupyter/scipy-notebook:8ee3ea7a590a
-RUN pip install pip --upgrade
-RUN pip3 install tensorflow tensorflow-gpu
-RUN pip install sklearn
-RUN pip install numpy
+
 
 USER root
 RUN apt-get update && apt-get install -y jq
@@ -106,7 +103,10 @@ WORKDIR /home/jovyan/work
 ## Additional python modules
 #RUN /opt/conda/envs/python2/bin/pip install imutils minieigen
 #RUN /opt/conda/bin/pip install imutils minieigen
-
+RUN pip install pip --upgrade
+RUN pip install tensorflow tensorflow-gpu
+RUN pip install sklearn
+RUN pip install numpy
 RUN pip install opencv-python
 RUN pip install mediapipe
 RUN mkdir model MP_Data processed_data results
