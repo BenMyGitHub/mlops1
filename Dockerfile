@@ -10,6 +10,7 @@ ARG NUM_CORES=2
 #RUN echo 'deb [signed-by=/usr/share/keyrings/kitware-archive-keyring.gpg] https://apt.kitware.com/ubuntu/ focal main' | sudo tee /etc/apt/sources.list.d/kitware.list >/dev/null
 #RUN apt-get update
 ## Install packages
+RUN pip install cmake==3.5.1
 RUN apt-get update -qq && \
     apt-get install -y --force-yes --fix-missing --no-install-recommends \
     # Basics
