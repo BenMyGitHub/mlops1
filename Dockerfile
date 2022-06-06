@@ -1,6 +1,7 @@
 FROM jupyter/scipy-notebook:8ee3ea7a590a
 RUN pip install pip --upgrade
-RUN pip install tensorflow sklearn
+RUN pip3 install tensorflow tensorflow-gpu
+RUN pip install sklearn
 RUN pip install numpy
 
 USER root
